@@ -1,4 +1,5 @@
 from app import create_app
+from app.extensions import db
 from config import ProductionConfig
 
 # Init
@@ -12,8 +13,5 @@ def get_user():
 
 
 if __name__ == "__main__":
-    from database.models import db
-
     db.init_app(app)
-    db.app = app
     app.run()
