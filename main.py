@@ -1,6 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-
-from app import create_app, register_blueprints
+from app import create_app
 from config import ProductionConfig
 
 # Init
@@ -13,10 +11,9 @@ def get_user():
     return 'index'
 
 
-# Init db
-db = SQLAlchemy(app)
-
 if __name__ == "__main__":
-    register_blueprints(app)
+    from database.models import db
+
     db.init_app(app)
+    db.app = app
     app.run()

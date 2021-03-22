@@ -1,10 +1,10 @@
-from flask import request, Blueprint
+from flask import request
 
+from app.blueprints import bp_user
+from app.extensions import db
 from app.utilities import exceptions
-from database.models import User, db
+from database.models import User
 from database.schemes import user_schema, users_schema
-
-bp_user = Blueprint('user', __name__)
 
 
 # Create User

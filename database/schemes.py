@@ -1,9 +1,4 @@
-from flask_marshmallow import Marshmallow
-
-from main import app
-
-# Init ma
-ma = Marshmallow(app)
+from app.extensions import ma
 
 
 # User Schema
@@ -12,6 +7,6 @@ class UserSchema(ma.Schema):
         fields = ('id', 'name', 'email', 'password_hash', 'created_on', 'updated_on')
 
 
-# Init user schema
+# Init User Schema
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)

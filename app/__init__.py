@@ -1,16 +1,22 @@
 from flask import Flask
 
+from app.extensions import db
 from config import TestConfig
 
 
 def create_app(config=TestConfig):
     app = Flask(__name__)
     app.config.from_object(config)
+    register_blueprints(app)
     return app
+
+
+def register_extensions(app):
+    db.init_app(app)
+    return None
 
 
 def register_blueprints(app):
     from app.blueprints.user import bp_user
-
-    # Blueprints
     app.register_blueprint(bp_user)
+    return None

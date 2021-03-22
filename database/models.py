@@ -1,19 +1,13 @@
-from sqlalchemy import *
-from sqlalchemy.testing import db
+from sqlalchemy import Column, Integer, Text, func, String
 from werkzeug.security import generate_password_hash, check_password_hash
+
+from app import db
 
 
 class Base(db.Model):
     __abstract__ = True
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    created_on = Column(Text, default=func.now(), nullable=False)
-    updated_on = Column(Text, default=func.now(), onupdate=func.now(), nullable=False)
-
-
-class BaseNoId(db.Model):
-    __abstract__ = True
-
     created_on = Column(Text, default=func.now(), nullable=False)
     updated_on = Column(Text, default=func.now(), onupdate=func.now(), nullable=False)
 
