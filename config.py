@@ -1,9 +1,7 @@
 import base64
 import os
 
-from app.utilities import constants
-
-basedir = constants.DATABASE_PACKAGE
+basedir = os.path.abspath(os.path.dirname(__file__))
 main_db = os.path.join(basedir, 'db.sqlite')
 test_db = os.path.join(basedir, 'test.sqlite')
 

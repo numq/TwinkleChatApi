@@ -8,15 +8,14 @@ def create_app(config=TestConfig):
     app = Flask(__name__)
     app.config.from_object(config)
     app.url_map.strict_slashes = False
-    register_blueprints(app)
     register_extensions(app)
+    register_blueprints(app)
     return app
 
 
 def register_extensions(app):
     from app.extensions import db, ma
     db.init_app(app)
-    db.create_all(app=app, bind=['db', 'test'])
     ma.init_app(app)
     return None
 
