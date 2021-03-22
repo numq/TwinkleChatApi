@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, Text, func, String
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.extensions import db
+from main import app
 
 
 class Base(db.Model):
@@ -28,3 +29,5 @@ class User(Base):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+
+db.create_all(app=app, bind=['db', 'test'])
