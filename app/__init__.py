@@ -9,6 +9,9 @@ def create_app(config=TestConfig):
     app.url_map.strict_slashes = False
     register_extensions(app)
     register_blueprints(app)
+
+    from app.extensions import db
+    db.create_all(app=app)
     return app
 
 
