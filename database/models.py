@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, Text, func, String
 from werkzeug.security import generate_password_hash, check_password_hash
 
+import app
 from app.extensions import db
-from main import app
 
 
 class Base(db.Model):
