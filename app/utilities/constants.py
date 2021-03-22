@@ -1,2 +1,2 @@
-DATABASE_PACKAGE = '\\database'
-DATABASE_PACKAGE_TEST = '\\tests'
+DATABASE_PACKAGE = 'database'
+DATABASE_PACKAGE_TEST = 'tests'
