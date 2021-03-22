@@ -1,0 +1,2 @@
+DATABASE_PACKAGE = '\\database'
+DATABASE_PACKAGE_TEST = '\\tests'
