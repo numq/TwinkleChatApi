@@ -11,6 +11,7 @@ class Config:
     TESTING = True
     SECRET_KEY = base64.b64encode(os.urandom(64)).decode('utf-8')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, main_db)
     SQLALCHEMY_BINDS = {
         'db': 'sqlite:///' + os.path.join(basedir, main_db),
         'test': 'sqlite:///' + os.path.join(basedir, test_db)
