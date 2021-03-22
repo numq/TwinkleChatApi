@@ -1,6 +1,6 @@
 from flask import Flask
 
-from app.extensions import db
+from app.extensions import db, ma
 from config import TestConfig
 
 
@@ -15,6 +15,7 @@ def create_app(config=TestConfig):
 
 def register_extensions(app):
     db.init_app(app)
+    ma.init_app(app)
     return None
 
 
