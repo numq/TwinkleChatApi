@@ -24,5 +24,9 @@ def register_extensions(app):
 
 def register_blueprints(app):
     from app.blueprints.user import bp_user
+    from app.blueprints.chat import bp_chat
+    from app.blueprints.message import bp_message
     app.register_blueprint(bp_user)
+    app.register_blueprint(bp_chat)
+    app.register_blueprint(bp_message)
     return None
